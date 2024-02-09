@@ -48,6 +48,6 @@ class Migration(migrations.Migration):
         ),
         migrations.AlterUniqueTogether(
             name="vote",
-            unique_together=set([("bill", "representative")]),
+            unique_together={("bill", "representative")},
         ),
     ]
