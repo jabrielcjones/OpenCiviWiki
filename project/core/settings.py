@@ -115,9 +115,8 @@ if "CIVIWIKI_LOCAL_NAME" not in os.environ:
     STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
 # Use DATABASE_URL in production
-DATABASE_URL = os.getenv("DATABASE_URL")
 
-if DATABASE_URL is not None:
+if (DATABASE_URL := os.getenv("DATABASE_URL")) is not None:
     DATABASES = {"default": DATABASE_URL}
 else:
     # Default to sqlite for simplicity in development
